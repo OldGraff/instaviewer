@@ -10,6 +10,7 @@
   "extends": [
     // Базовый набор правил eslint
     "airbnb-typescript",
+    "airbnb/hooks",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     // Отключаем правила из базового набора
@@ -17,7 +18,10 @@
     // Базовые правила для TypeScript
     "plugin:@typescript-eslint/recommended",
     // Правила TS, требующие инфо о типах
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   // Движок парсинга
   "parser": "@typescript-eslint/parser",
@@ -25,12 +29,20 @@
     // Движку нужен проект TS для правил с типами
     "project": "tsconfig.json",
     "tsconfigRootDir": ".",
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
     "ecmaFeatures": {
       "jsx": true
     }
   },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
   // Плагин с наборами правил для TypeScript
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "eslint-plugin-import", "eslint-plugin-jsx-a11y"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "eslint-plugin-import", "eslint-plugin-jsx-a11y"],
   "ignorePatterns": ["webpack.config.js", "dist/**/*", ".yarn/**/*", "*.html"],
-  "rules": {}
+  "rules": {
+    "import/prefer-default-export": "off"
+  }
 }
