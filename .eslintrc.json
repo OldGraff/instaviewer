@@ -21,7 +21,9 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
   // Движок парсинга
   "parser": "@typescript-eslint/parser",
@@ -32,17 +34,22 @@
     "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "sourceType": "module"
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
+    },
+    "react": {
+      "version":  "detect"
     }
   },
   // Плагин с наборами правил для TypeScript
   "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "eslint-plugin-import", "eslint-plugin-jsx-a11y"],
-  "ignorePatterns": ["webpack.config.js", "dist/**/*", ".yarn/**/*", "*.html"],
+  "ignorePatterns": ["webpack.config.js", "dist/**/*", ".yarn/**/*", "*.html", "*.scss.d.ts"],
   "rules": {
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-floating-promises": "off"
   }
 }
