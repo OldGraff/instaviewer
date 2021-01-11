@@ -1,2 +1,2 @@
-# instaviewer
-Convenient viewing of instagram
+# webpack_template
+For new projects 
